@@ -43,6 +43,9 @@ class MainWindow:
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self.main_win)
         # Connect signals to slot
+        # When program starts  disable touchpad
+        command = "xinput --disable " + getDeviceId()
+        os.system(command)
         self.ui.checkBox.clicked.connect(lambda: self.checkBoxChangedAction())
 
 
